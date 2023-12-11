@@ -1,0 +1,111 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+#include <Windows.h>
+
+// 1인용 빙고
+
+// 1. 오늘 연습했던 5x5 숫자 출력을 활용해서 숫자 판을 표시합니다.
+// 2. 두 정수 x, y를 입력으로 받도록 해주세요.
+// 3. 입력으로 받은 두 정수 x, y에 해당하는 위치의 숫자를 지워주세요.
+// 4. 가로, 혹은 세로, 혹은 대각선 한 줄이 모두 지워지면 빙고 한 줄이 채워집니다.
+// 5. 빙고가 세 줄이 되면 게임이 끝납니다.
+
+int main()
+{
+    srand(GetTickCount64());
+    int BingoCount = 0;
+    int bingo[5][5];
+    int input;
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            bingo[i][j] = i * 5 + j + 1;
+        }
+    }
+
+    for (int i = 0; i < 100; ++i)
+    {
+        int x = rand() % 5;
+        int y = rand() % 5;
+        int a = rand() % 5;
+        int b = rand() % 5;
+
+        int tmp = bingo[x][y];
+        bingo[x][y] = bingo[a][b];
+        bingo[a][b] = tmp;
+    }
+    std::cout << "1인용 빙고게임" << std::endl;
+
+    while (BingoCount < 3)
+    {
+        for (int i = 0; i < 5; ++i)
+        {
+            for (int j = 0; j < 5; ++j)
+            {
+                if (bingo[i][j] == 0)
+                    std::cout << bingo[i][j] << "\t";
+                else
+                    std::cout << bingo[i][j] << "\t";
+            }
+            std::cout << std::endl << std::endl;
+        }
+        
+        std::cout << "숫자 입력 : ";
+        std::cin >> input;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (bingo[i][j] == input)
+                {
+                    bingo[i][j] = 0;
+                }
+            }
+        }
+        int countRcross = 0;
+        int countLcross = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            int countWidth = 0;
+            int countLength = 0;
+
+            for (int j = 0; j < 5; j++)
+            {
+                if(bingo[i][j] == 0)
+                    countWidth++;
+                if(bingo[j][i] == 0)
+                    countLength++;
+                if(i == j && bingo[i][j] == 0)
+                    countRcross++;
+                if((i + j == 4) && bingo[i][j] == 0)
+                    countLcross++;
+            }
+
+            if(countWidth == 5)
+                BingoCount++;
+            if(countLength == 5)
+                BingoCount++;
+        }
+
+        if(countRcross == 5)
+            BingoCount++;
+        if(countLcross == 5)
+            BingoCount++;
+
+        system("cls");
+
+        std::cout << "현재 빙고 : " << BingoCount << std::endl;
+        
+        if (BingoCount >= 3)
+        {
+            std::cout << "빙고 종료" << std::endl;
+        }
+        else
+        {
+            BingoCount = 0;
+        }
+    }
+}
