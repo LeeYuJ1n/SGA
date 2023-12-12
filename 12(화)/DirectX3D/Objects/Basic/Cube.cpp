@@ -7,16 +7,16 @@ Cube::Cube(Vector3 size)
     mesh = new Mesh<VertexType>();
     vector<VertexType>& vertices = mesh->GetVertices();
     //Front
-    vertices.emplace_back(-size.x, -size.y, -size.z, 0, 1); // B
-    vertices.emplace_back(-size.x, +size.y, -size.z, 0, 0); // L
-    vertices.emplace_back(+size.x, -size.y, -size.z, 1, 1); // R
-    vertices.emplace_back(+size.x, +size.y, -size.z, 1, 0); // T
+    vertices.emplace_back(-size.x, -size.y, -size.z, 0, 1);
+    vertices.emplace_back(-size.x, +size.y, -size.z, 0, 0);
+    vertices.emplace_back(+size.x, -size.y, -size.z, 1, 1);
+    vertices.emplace_back(+size.x, +size.y, -size.z, 1, 0);
 
     //Up
-    vertices.emplace_back(-size.x, +size.y, -size.z, 0, 1); // 2 0 | 4
-    vertices.emplace_back(-size.x, +size.y, +size.z, 0, 0); // 0 1 | 5
-    vertices.emplace_back(+size.x, +size.y, -size.z, 1, 1); // 3 2 | 6
-    vertices.emplace_back(+size.x, +size.y, +size.z, 1, 0); //   3 | 7
+    vertices.emplace_back(-size.x, +size.y, -size.z, 0, 1);
+    vertices.emplace_back(-size.x, +size.y, +size.z, 0, 0);
+    vertices.emplace_back(+size.x, +size.y, -size.z, 1, 1);
+    vertices.emplace_back(+size.x, +size.y, +size.z, 1, 0);
 
     //Left
     vertices.emplace_back(+size.x, +size.y, -size.z, 0, 1);
@@ -37,15 +37,15 @@ Cube::Cube(Vector3 size)
     vertices.emplace_back(+size.x, -size.y, +size.z, 1, 0);
 
     //Down
-    vertices.emplace_back(-size.x, -size.y, -size.z, 0, 1); // 2 3
-    vertices.emplace_back(+size.x, -size.y, -size.z, 0, 0); //   3 
-    vertices.emplace_back(-size.x, -size.y, +size.z, 1, 1); // 0 1
-    vertices.emplace_back(+size.x, -size.y, +size.z, 1, 0); // 2 2
+    vertices.emplace_back(-size.x, -size.y, -size.z, 0, 1);
+    vertices.emplace_back(+size.x, -size.y, -size.z, 0, 0);
+    vertices.emplace_back(-size.x, -size.y, +size.z, 1, 1);
+    vertices.emplace_back(+size.x, -size.y, +size.z, 1, 0);
 
     vector<UINT>& indices = mesh->GetIndices();
     indices = {
         //Front
-        0, 1, 2, 2, 1, 3, // L -> B -> T -> T -> B -> R
+        0, 1, 2, 2, 1, 3,
 
         //Up
         4, 5, 6, 6, 5, 7,
@@ -62,7 +62,6 @@ Cube::Cube(Vector3 size)
 
         //Down
         20, 21, 22, 22, 21, 23
-        //20, 21, 22
     };
 
     mesh->CreateMesh();
