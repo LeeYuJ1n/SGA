@@ -1,0 +1,13 @@
+12월 11일 월요일 : [ DirectX3D ] 위치, 크기, 회전
+12월 12일 화요일 : [ DirectX3D ] 점을 이용한 입체 그림 출력
+12월 13일 수요일 : [ DirectX3D ] 셰이더, 하이맵 적용, 분지만들기
+12월 14일 목요일 : [ DirectX3D ] 노멀맵, 노멀맵 호출, 스피어 만들기
+12월 15일 금요일 : [ DirectX3D ] 광선을 이용한 박스 충돌
+12월 19일 화요일 : [ DirectX3D ] Raycast
+12월 20일 수요일 : [ DirectX3D ] Picker
+12월 21일 목요일 : [ DirectX3D ] Picker
+12월 22일 금요일 : [ DirectX3D ] TerrainEditor
+12월 26일 화요일 : [ DirectX3D ] TerrainEditor + Brush
+12월 27일 수요일 : [ DirectX3D ] TerrainEditor + Height + Character
+12월 28일 목요일 : [ DirectX3D ] FollowCam
+12월 29일 금요일 : [ DirectX3D ] BlockManager
