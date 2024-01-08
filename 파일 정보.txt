@@ -1,4 +1,0 @@
-01월 02일 화요일 : [ DirectX3D ] ActorUI
-01월 03일 수요일 : [ DirectX3D ] AUI_Final_Cylinder
-01월 04일 목요일 : [ DirectX3D ] ModelRender_Base
-01월 05일 금요일 : [ DirectX3D ] ModelExporter(Part)
