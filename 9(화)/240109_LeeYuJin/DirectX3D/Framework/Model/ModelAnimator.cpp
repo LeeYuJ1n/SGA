@@ -1,5 +1,4 @@
 #include "Framework.h"
-#include "ModelAnimator.h"
 
 ModelAnimator::ModelAnimator(string name) 
 	: Model(name) // 이름을 받아서 모델을 불러오고 생성
