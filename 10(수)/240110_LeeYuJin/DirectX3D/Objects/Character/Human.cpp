@@ -38,6 +38,9 @@ void Human::Update()
 
 	ModelAnimator::Update(); // 원본으로서의 업데이트 또한 수행
 	                         // 클래스명이 없으면 재귀함수가 돼서 문제 발생
+
+	Control();
+	Jump();
 }
 
 void Human::Render()
@@ -56,8 +59,61 @@ void Human::GUIRender()
 
 void Human::Control()
 {
+	if (KEY_DOWN('W') || KEY_DOWN('S') || KEY_DOWN('A') || KEY_DOWN('D'))
+	{
+		PlayClip(1); // W키가 눌리면 Walk 모션 클립 실행
+	}
+	else if (KEY_UP('W') || KEY_UP('S'))
+	{
+		PlayClip(0); // W키가 안 눌리면 Standing 모션 실행
+	}
+	
+	if (KEY_PRESS('W'))
+	{
+		Pos() -= Forward() * moveSpeed * DELTA;
+	}
+
+	if (KEY_PRESS('A'))
+	{
+		Pos() += Left() * moveSpeed * DELTA;
+		Rot().y -= 5.0f * DELTA;
+	}
+
+	if (KEY_PRESS('S'))
+	{
+		Pos() += Forward() * moveSpeed * DELTA;
+	}
+
+	if (KEY_PRESS('D'))
+	{
+		Pos() += Right() * moveSpeed * DELTA;
+		Rot().y += 5.0f * DELTA;
+	}
 }
 
 void Human::Jump()
 {
+	if (KEY_DOWN(VK_SPACE))
+	{
+		isJump = true;
+	}
+	
+	// else if (KEY_UP(VK_SPACE))
+	// {
+	// 	isJump = false;
+	// }
+
+	if (isJump)
+	{
+		PlayClip(2);
+		Pos() += Vector3().Up() * jumpVelocity * DELTA;
+		jumpVelocity -= jumpForce * DELTA;
+
+		if (Pos().y <= 0)
+		{
+			PlayClip(0);
+			isJump = false;
+			Pos().y = 0;
+		}
+	}
 }

@@ -28,12 +28,12 @@ private:
 	// 움직임용 변수들 
 
 	// 일단은 예시 (써도 좋고, 수정해도 좋고)
-	float moveSpeed;
-	float jumpVelocity;
-	float jumpForce;
-	float gravityMult;
+	float moveSpeed    = 150.0f;   // 이동 속도
+	float jumpVelocity = 100.0f;    // 점프 속도
+	float jumpForce    = 50.0f;    // 점프 힘
+	float gravityMult  = 50.0f;    // 중력
 
-	bool isJump;
+	bool isJump = false; // 현재 점프 중인가? false (아니다)
 
 };
 
