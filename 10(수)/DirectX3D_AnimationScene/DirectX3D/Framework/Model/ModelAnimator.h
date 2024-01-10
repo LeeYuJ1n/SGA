@@ -12,7 +12,7 @@ protected:
         int clip = 0;       // 프레임에 기록되었던 클립의 코드
         UINT curFrame = 0;  // 현재 프레임
         float time = 0;     // 시간
-        float scale = 0;    // 스케일
+        float scale = 1;    // 스케일
 
         // 움직임의 정보와 지금의 데이터를 한 곳에 모으기
     };

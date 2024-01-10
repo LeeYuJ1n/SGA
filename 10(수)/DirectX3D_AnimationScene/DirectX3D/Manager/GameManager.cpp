@@ -8,6 +8,8 @@
 #include "Scenes/ModelExportScene.h"
 #include "Scenes/ModelRenderScene.h"
 #include "Scenes/ModelAnimationScene.h"
+#include "Scenes/IntancingScene.h"
+#include "Scenes/HumanScene.h"
 
 GameManager::GameManager()
 {
@@ -21,11 +23,13 @@ GameManager::GameManager()
     //SceneManager::Get()->Create("Terrain", new TerrainEditorScene());
     //SceneManager::Get()->Create("Collision", new CollisionScene());
     //SceneManager::Get()->Create("ModelRender", new ModelRenderScene());
-    SceneManager::Get()->Create("ModelAnimationScene", new ModelAnimationScene());
+    // SceneManager::Get()->Create("ModelAnimationScene", new ModelAnimationScene());
+    // SceneManager::Get()->Create("Instancing", new IntancingScene());
+    SceneManager::Get()->Create("HumanTest", new HumanScene());
 
     SceneManager::Get()->Add("Grid");    
     //SceneManager::Get()->Add("ModelExport");
-    SceneManager::Get()->Add("ModelAnimationScene");
+    SceneManager::Get()->Add("HumanTest");
 }
 
 GameManager::~GameManager()

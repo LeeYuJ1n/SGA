@@ -130,8 +130,8 @@ using namespace Utility;
 #include "Framework/Model/Model.h"
 #include "Framework/Model/ModelClip.h"
 #include "Framework/Model/ModelAnimator.h"
-//#include "Framework/Model/ModelInstancing.h"
-//#include "Framework/Model/ModelAnimatorInstancing.h"
+#include "Framework/Model/ModelInstancing.h"
+#include "Framework/Model/ModelAnimatorInstancing.h"
 
 using namespace GameMath;
 
@@ -151,6 +151,10 @@ using namespace GameMath;
 #include "Objects/Manager/BlockManager.h"
 
 #include "Objects/Actor/ActorUI.h"
+
+#include "Objects/Items/Weapons/Crowbar.h"
+
+#include "Objects/Character/Human.h"
 
 //Scene Header
 #include "Scenes/Scene.h"

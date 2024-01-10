@@ -156,34 +156,50 @@ Matrix ModelAnimator::GetTransformByNode(int nodeIndex)
 
 void ModelAnimator::CreateTexture()
 {
+    // 만들어진 애니메이션에 텍스처를 입히거나, 새로 데이터를 생성해서 모델에 적용하는 함수
+    // 애니메이션 그 자체보다는 결과를 눈에 보이도록 준비하는 쪽의 기능에 가깝다
+
+    // 그래서 그 텍스처를 만드는 과정
+
+    // 동작 수 만큼 변수 준비
     UINT clipCount = clips.size();
 
+    // 동작에 대한 트랜스폼 받아오기
     clipTransforms = new ClipTransform[clipCount];
     nodeTransforms = new ClipTransform[clipCount];
 
+    // 동작 수 만큼 반복을 돌리면서 클립의 실제 트랜스폼을 생성
     FOR(clipCount)
-        CreateClipTransform(i);
+        CreateClipTransform(i); // 여기서 작성한 클립 트랜스폼 생성
 
+    // DX11의 포맷에 따라 이미지 정보 초기화하기
     D3D11_TEXTURE2D_DESC desc = {};
-    desc.Width = MAX_BONE * 4;
-    desc.Height = MAX_FRAME;
-    desc.MipLevels = 1;
-    desc.ArraySize = clipCount;
-    desc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+    desc.Width            = MAX_BONE * 4;
+    desc.Height           = MAX_FRAME;
+    desc.MipLevels        = 1;
+    desc.ArraySize        = clipCount;
+    desc.Format           = DXGI_FORMAT_R32G32B32A32_FLOAT; // 이미지 포맷
     desc.SampleDesc.Count = 1;
-    desc.Usage = D3D11_USAGE_IMMUTABLE;
-    desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+    desc.Usage            = D3D11_USAGE_IMMUTABLE;          // 사용 유형
+    desc.BindFlags        = D3D11_BIND_SHADER_RESOURCE;     // 어느 셰이더에 쓸 것인지, 연결 옵션
 
+    // 정렬할 크기와 전체 이미지 크기
     UINT pitchSize = MAX_BONE * sizeof(Matrix);
     UINT pageSize = pitchSize * MAX_FRAME;
 
+    // 받아오는 데이터에 따라 (포맷이 뭐든간) 미리 메모리 예약 (부정형 동적 할당)
     void* p = VirtualAlloc(nullptr, pageSize * clipCount,
         MEM_RESERVE, PAGE_READWRITE);
+    // ~~~Alloc : Allocation, "할당"의 줄임말. c 계열 언어에서는 동적 할당의 수단 중 하나로 사용된다
+    //            (C++의 new xxx와 비슷)
 
+    // 클립 수 만큼 다시
     FOR(clipCount)
     {
+        // 텍스처 생성지점 미리 만들기
         UINT start = i * pageSize;
 
+        // 텍스처를 불러와서 메모리로 카피하기
         for (UINT y = 0; y < MAX_FRAME; y++)
         {
             void* temp = (BYTE*)p + pitchSize * y + start;
@@ -193,28 +209,40 @@ void ModelAnimator::CreateTexture()
         }
     }
 
+    // DX11 출력(리소스) 등록 준비
     D3D11_SUBRESOURCE_DATA* subResource = new D3D11_SUBRESOURCE_DATA[clipCount];
 
     FOR(clipCount)
     {
         void* temp = (BYTE*)p + i * pageSize;
 
-        subResource[i].pSysMem = temp;
-        subResource[i].SysMemPitch = pitchSize;
+        // 리소스 정보 갱신 (현재 데이터 따라)
+        subResource[i].pSysMem          = temp;
+        subResource[i].SysMemPitch      = pitchSize;
         subResource[i].SysMemSlicePitch = pageSize;
     }
 
+    // DX 함수로 텍스처를 "생성" = 이미지대로 출력되게 데이터 생성
     DEVICE->CreateTexture2D(&desc, subResource, &texture);
 
+    // 용도 다 된 임시 변수 지우기
     delete[] subResource;
     VirtualFree(p, 0, MEM_RELEASE);
 
+    // 텍스처 정보 채우기
     D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-    srvDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-    srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DARRAY;
-    srvDesc.Texture2DArray.MipLevels = 1;
+    srvDesc.Format                   = DXGI_FORMAT_R32G32B32A32_FLOAT;
+    srvDesc.ViewDimension            = D3D11_SRV_DIMENSION_TEXTURE2DARRAY;
+    srvDesc.Texture2DArray.MipLevels = 1; // 밉 계층 (이것만은 눈에 익혀둡시다)
     srvDesc.Texture2DArray.ArraySize = clipCount;
 
+    // 밉 계층 : 텍스처가 동일한 내용에 해상도가 다른 여러 장의 이미지 데이터로 구성된 경우
+    //           (이 경우 이미지는 파일 하나일 수도, 여러 개일 수도)
+    //           이 다른 여러 이미지 데이터를 몇 개까지 하나의 텍스처로 취급할 것인가를 설정한다
+
+    // -> 이를 통해서 복수 이미지를 통한 출력 최적화, "밉 맵"이라는 유형의 출력을 제어 가능
+
+    // SRV (출력용 셰이더) 쪽에 정보까지 다 만들어진 텍스처를 전달
     DEVICE->CreateShaderResourceView(texture, &srvDesc, &srv);
 }
 
@@ -316,12 +344,12 @@ void ModelAnimator::UpdateFrame()
 
         if (frameData.tweenTime >= 1.0f) // 전환시간이 소요되면
         {
-            frameData.cur = frameData.next; //프레임을 교체
+            frameData.cur       = frameData.next; //프레임을 교체
             frameData.tweenTime = 0; // 전환시간 리셋
 
-            frameData.next.clip = -1; //전환이 끝났으니 추가 지정이 없으면 다음 클립은 없음
+            frameData.next.clip     = -1; //전환이 끝났으니 추가 지정이 없으면 다음 클립은 없음
             frameData.next.curFrame = 0; // 나머지 데이터도 리셋
-            frameData.next.time = 0;
+            frameData.next.time     = 0;
             return; //전환종료
         }
 

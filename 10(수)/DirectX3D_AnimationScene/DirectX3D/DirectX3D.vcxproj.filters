@@ -225,6 +225,24 @@
     <ClInclude Include="Framework\Model\ModelAnimator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Model\ModelInstancing.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Model\ModelAnimatorInstancing.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\IntancingScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Character\Human.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Items\Weapons\Crowbar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\HumanScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectX3D.cpp">
@@ -405,6 +423,24 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Model\ModelAnimator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Model\ModelInstancing.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Model\ModelAnimatorInstancing.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\IntancingScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Character\Human.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Items\Weapons\Crowbar.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\HumanScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -142,6 +142,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Scenes\HumanScene.h" />
+    <ClInclude Include="Objects\Items\Weapons\Crowbar.h" />
     <ClInclude Include="DirectX3D.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Framework\Buffer\ConstBuffer.h" />
@@ -162,9 +164,11 @@
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Math\Vector3.h" />
     <ClInclude Include="Framework\Model\ModelAnimator.h" />
+    <ClInclude Include="Framework\Model\ModelAnimatorInstancing.h" />
     <ClInclude Include="Framework\Model\ModelClip.h" />
     <ClInclude Include="Framework\Model\ModelData.h" />
     <ClInclude Include="Framework\Model\ModelExporter.h" />
+    <ClInclude Include="Framework\Model\ModelInstancing.h" />
     <ClInclude Include="Framework\Model\ModelMesh.h" />
     <ClInclude Include="Framework\Model\Model.h" />
     <ClInclude Include="Framework\Render\Material.h" />
@@ -188,6 +192,8 @@
     <ClInclude Include="Framework\Utilities\Timer.h" />
     <ClInclude Include="Framework\Utilities\tinyxml2.h" />
     <ClInclude Include="Framework\Utilities\Utility.h" />
+    <ClInclude Include="Objects\Character\Human.h" />
+    <ClInclude Include="Scenes\IntancingScene.h" />
     <ClInclude Include="Manager\GameManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Objects\Basic\Cube.h" />
@@ -214,6 +220,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scenes\HumanScene.cpp" />
+    <ClCompile Include="Objects\Items\Weapons\Crowbar.cpp" />
     <ClCompile Include="DirectX3D.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -232,8 +240,10 @@
     <ClCompile Include="Framework\Math\GameMath.cpp" />
     <ClCompile Include="Framework\Math\Transform.cpp" />
     <ClCompile Include="Framework\Model\ModelAnimator.cpp" />
+    <ClCompile Include="Framework\Model\ModelAnimatorInstancing.cpp" />
     <ClCompile Include="Framework\Model\ModelClip.cpp" />
     <ClCompile Include="Framework\Model\ModelExporter.cpp" />
+    <ClCompile Include="Framework\Model\ModelInstancing.cpp" />
     <ClCompile Include="Framework\Model\ModelMesh.cpp" />
     <ClCompile Include="Framework\Model\Model.cpp" />
     <ClCompile Include="Framework\Render\Material.cpp" />
@@ -255,6 +265,8 @@
     <ClCompile Include="Framework\Utilities\Timer.cpp" />
     <ClCompile Include="Framework\Utilities\tinyxml2.cpp" />
     <ClCompile Include="Framework\Utilities\Utility.cpp" />
+    <ClCompile Include="Objects\Character\Human.cpp" />
+    <ClCompile Include="Scenes\IntancingScene.cpp" />
     <ClCompile Include="Manager\GameManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Objects\Basic\Cube.cpp" />

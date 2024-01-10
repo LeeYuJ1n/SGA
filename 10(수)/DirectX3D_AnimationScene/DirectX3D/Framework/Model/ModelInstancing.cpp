@@ -3,6 +3,15 @@
 ModelInstancing::ModelInstancing(string name)
     : Model(name)
 {
+    // 정점 데이터를 따로 하나 만들고, 이름을 인스턴스 버퍼라고 지칭한다
+    // -> 업데이트도 자기 안의 트랜스폼x 인스턴스 버퍼를 업데이트
+    // -> 렌더도 자기 안의 메쉬를 x 인스턴스 버퍼를 통해 연산된 메쉬를 렌더
+
+    // -> 실제로 나오는 건 여러 물체인데, 정작 컴퓨터가 연산하고 있는 대상은 하나밖에 없다
+    //    -> 이런 원리로 컴퓨터가 여러 물체를 부드럽게, 빠르게, 무리하지 않고 렌더 가능
+
+    // 모델뿐 아니라 애니메이터도 인스턴싱이 있다 ( -> 애니메이터 인스턴싱 확인)
+
     instanceBuffer = new VertexBuffer(instanceDatas, sizeof(InstanceData), MAX_INSTANCE);
     SetShader(L"Model/ModelInstancing.hlsl");
 }

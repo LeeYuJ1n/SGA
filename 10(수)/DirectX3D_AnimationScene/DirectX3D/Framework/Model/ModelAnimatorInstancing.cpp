@@ -5,6 +5,8 @@ ModelAnimatorInstancing::ModelAnimatorInstancing(string name)
 {
     SetShader(L"Model/ModelAnimationInstancing.hlsl");
 
+    // 인스턴스 할당 + 업데이트, 렌더에서 자기 자신 대신 인스턴스의 데이터를 연산 수행
+    // 요점 : 모델의 정점 정보, 뼈대 정보 등 공유 가능한 것들을 최대한 텍스처처럼 한 리소스에서 뽑아 처리하자
     instanceBuffer = new VertexBuffer(instanceDatas, sizeof(InstanceData), MAX_INSTANCE);
     frameInstancingBuffer = new FrameInstancingBuffer();
 }
@@ -28,7 +30,7 @@ void ModelAnimatorInstancing::Render()
     if (texture == nullptr)
         CreateTexture();
 
-    instanceBuffer->Set(1);
+    instanceBuffer->Set(1); // 인스턴스 주기
     frameInstancingBuffer->SetVS(4);
     DC->VSSetShaderResources(0, 1, &srv);
 
