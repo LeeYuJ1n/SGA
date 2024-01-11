@@ -36,5 +36,10 @@ private:
 
 	bool isJump;
 
+	// 쿠나이 모델 불러오기
+	Model* model;
+	
+
+	bool isAttack = false; // 현재 쿠나이를 던졌는가? (false)
 };
 

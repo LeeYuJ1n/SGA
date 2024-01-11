@@ -2,6 +2,8 @@
 
 Human::Human() : ModelAnimator("Human") // 부모 모델 만들기
 {
+	model = new Model("Kunai");
+
 	// 동작 읽기
 	ReadClip("Idle", 1);
 	ReadClip("Run", 1);
@@ -22,10 +24,14 @@ Human::~Human()
 	delete mainHand; // <- 이렇게 지워도 되는 이유 : 포인터는 지워도 데이터가 날아가진 않는다
 	                 // 단지 그 자리에 덮어씌워질 가능서잉 생길 뿐
 	                 // 그리고 이 "손"의 진짜 데이터는 아직 원본이 그 자리에 남아 있다
+
+	delete model;
 }
 
 void Human::Update()
 {
+	Control();
+
 	// 업데이트에서 중요한 것 : 
 	// 1. 내 손은 무엇인가? (쇠지렛대 보다 먼저 수행해야 함)
 	// 2. 내 손은 어디 있는가? (그래야 거기에 무기가 있을 테니까)
@@ -56,6 +62,10 @@ void Human::GUIRender()
 
 void Human::Control()
 {
+	if (KEY_DOWN('F'))
+	{
+		model->Pos().Up() += 
+	}
 }
 
 void Human::Jump()
