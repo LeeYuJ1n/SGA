@@ -114,7 +114,24 @@ void ModelAnimatorInstancing::UpdateTransforms()
     {
         if (transforms[i]->Active())
         {
+            // 애니메이션의 인스턴싱 중에 만들어진 객체가 절두체 안에 있으면 렌더 (프레임 업데이트)
+            // 없으면 아무것도 하지 않음 -> 렌더 꺼짐
+
+            // 간단히 말하면 "지금 내 눈에 보이면 그리고 안 보일 거면 그리지도 말아라"
+
             if (!CAM->ContainPoint(transforms[i]->GlobalPos())) continue;
+            
+            // 위 코드를 사용함으로써 모니터에 출력되는 물체의 렌더 연산 (정점 연산, 렌더를 위한 버퍼 준비)을
+            // 낭비하지 않을 수 있다
+
+            // 인스턴싱의 존재 의의와 비슷 : 렌더(최종 출력)까지 줄이진 못하지만, 적어도 렌더가 필요없는 상황에서
+            //                             렌더에 낭비될 컴퓨터 연산을 줄여주는 것은 가능
+
+            // 이것이 프러스텀(절두체) 컬링 = frustum culling
+
+            // frustum culling(절두체 컬링) : 눈에 보이는 것만 렌더링
+            // Back-face culling : 눈에 보이더라도 보이는 면만 렌더링하며, 눈에 보이지 않는 면은 렌더링을 하지 않는다
+            // Occlusion Culling : 다른 오브젝트에 가려(오클루전된) 카메라에 보이지 않는 오브젝트의 렌더링을 비활성화하는 기능
 
             UpdateFrame(i, frameInstancingBuffer->Get().motions[i]);
             transforms[i]->UpdateWorld();

@@ -153,6 +153,7 @@ using namespace GameMath;
 #include "Objects/Actor/ActorUI.h"
 
 #include "Objects/Items/Weapons/Crowbar.h"
+#include "Objects/Items/Weapons/Kunai.h"
 
 #include "Objects/Character/Human.h"
 

@@ -5,10 +5,15 @@ IntancingScene::IntancingScene()
 {
 	// 모델 (최초 구현) 생성
 	
-	models = new ModelAnimatorInstancing("Human"); // 애니메이터 하나인 것 처럼 일단 만들기
+	models = new ModelAnimatorInstancing("Naruto"); // 애니메이터 하나인 것 처럼 일단 만들기
 
-	models->ReadClip("Idle", 1); // 휴먼 FBX는 동작에 수가 지정돼 있어서 1 매개변수 필수 (다른 모델은 없어도 될 수 있음)
-	models->ReadClip("Run", 1);
+	// 나루토의 경우
+	models->ReadClip("Idle");       // 닌자 자세
+	models->ReadClip("Punching");   // 주먹질
+
+	// 인간(테스트)인 경우
+	// models->ReadClip("Idle", 1); // 휴먼 FBX는 동작에 수가 지정돼 있어서 1 매개변수 필수 (다른 모델은 없어도 될 수 있음)
+	// models->ReadClip("Run", 1);
 
 	// (인스턴싱 핵심) 헤더에서 지정한 정렬 크기만큼 인스턴스를 추가 생성
 	for (float z = 0; z < SIZE; ++z)

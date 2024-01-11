@@ -2,6 +2,7 @@
 
 class Human : public ModelAnimator
 {
+
 public:
 	Human();
 	~Human();
