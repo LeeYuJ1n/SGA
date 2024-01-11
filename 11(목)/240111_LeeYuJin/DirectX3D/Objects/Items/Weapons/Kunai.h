@@ -9,7 +9,8 @@ private:
                             // 프로그래밍에서는 생성된 객체의 지속 시간을 말한다 (주기가 끝나면 삭제)
 
 public:
-    Kunai(Transform* transform);
+    // Kunai(Transform* transform);
+    Kunai();
     ~Kunai();
 
     void Update();

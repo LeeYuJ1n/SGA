@@ -13,5 +13,6 @@ public:
 
 private:
     Human* human;
+    Kunai* kunai;
 };
 

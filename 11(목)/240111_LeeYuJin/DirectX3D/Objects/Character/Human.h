@@ -6,7 +6,7 @@ private:
     {
         IDLE,
         RUN,
-        JUMP
+        JUMP,
     };
 
 public:
@@ -23,8 +23,9 @@ private:
     // 별도연산 대상 : 발소리 체크를 위한 "내 발" 혹은 무기를 쥐기 위한 "내 손"
 
     // 예 : 쇠지렛대를 무기로 사용해, 손에 쥐기
-    Crowbar* crowbar;    //쇠지렛대 (무기)
+    // Crowbar* crowbar;    //쇠지렛대 (근접 무기)
     Transform* mainHand; //주로 쓰는 손 (보통은 오른쪽인)
+    Model* kunai;        // 쿠나이 (투척용 무기)
 
 private:
 
@@ -38,9 +39,11 @@ private:
     ACTION action; // 수행 중인 액션
 
     // 일단은 예시 (써도 좋고, 수정해도 좋고....)
-    float moveSpeed = 0;
+    float moveSpeed    = 0;
     float jumpVelocity = 0;
-    float jumpForce = 0.5f;
-    float gravityMult = 0.5f;
+    float jumpForce    = 0.5f;
+    float gravityMult  = 0.5f;
+
+    // 현재 점프를 하는 중인가? (아니다 = false)
     bool isJump = false;
 };
