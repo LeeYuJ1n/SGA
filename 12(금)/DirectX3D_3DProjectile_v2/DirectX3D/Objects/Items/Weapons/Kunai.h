@@ -23,7 +23,7 @@ public:
 private:
 
     //임시 : 다 되면 삭제
-    Model* model;
+    // Model* model;
 
     Transform* transform;
     SphereCollider* collider;

@@ -142,7 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Objects\Character\Naruto.h" />
+    <ClInclude Include="Objects\Manager\KunaiManager.h" />
     <ClInclude Include="Objects\Items\Weapons\Kunai.h" />
+    <ClInclude Include="Objects\Character\Robot.h" />
     <ClInclude Include="Scenes\HumanScene.h" />
     <ClInclude Include="Objects\Items\Weapons\Crowbar.h" />
     <ClInclude Include="DirectX3D.h" />
@@ -206,7 +209,6 @@
     <ClInclude Include="Objects\Landscape\TerrainEditor.h" />
     <ClInclude Include="Objects\Manager\BlockManager.h" />
     <ClInclude Include="Objects\Actor\ActorUI.h" />
-    <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\CollisionScene.h" />
     <ClInclude Include="Scenes\CubeScene.h" />
     <ClInclude Include="Scenes\GridScene.h" />
@@ -221,7 +223,10 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Objects\Character\Naruto.cpp" />
+    <ClCompile Include="Objects\Manager\KunaiManager.cpp" />
     <ClCompile Include="Objects\Items\Weapons\Kunai.cpp" />
+    <ClCompile Include="Objects\Character\Robot.cpp" />
     <ClCompile Include="Scenes\HumanScene.cpp" />
     <ClCompile Include="Objects\Items\Weapons\Crowbar.cpp" />
     <ClCompile Include="DirectX3D.cpp" />

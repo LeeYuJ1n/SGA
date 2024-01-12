@@ -155,7 +155,12 @@ using namespace GameMath;
 #include "Objects/Items/Weapons/Crowbar.h"
 #include "Objects/Items/Weapons/Kunai.h"
 
+#include "Objects/Manager/KunaiManager.h"
+#include "Objects/Manager/BlockManager.h"
+
 #include "Objects/Character/Human.h"
+#include "Objects/Character/Naruto.h"
+#include "Objects/Character/Robot.h"
 
 //Scene Header
 #include "Scenes/Scene.h"

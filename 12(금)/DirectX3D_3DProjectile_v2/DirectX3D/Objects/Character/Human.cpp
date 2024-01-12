@@ -17,6 +17,9 @@ Human::Human() : ModelAnimator("Human") //부모 모델 만들기
     //무기를 손에 쥐기
     mainHand = new Transform(); // 트랜스폼이 있다는 것만 정하기
     crowbar->SetParent(mainHand); // 무기 위치 = 내 손
+
+    // 쿠나이 (매니저 생성)
+    KunaiManager::Get(); // 필수는 아닌데 해두면 플레이 도중 렉 유발을 줄일 수 있음
 }
 
 Human::~Human()
@@ -44,6 +47,8 @@ void Human::Update()
 
     ModelAnimator::Update(); //원본으로서의 업데이트 또한 수행
                              //클래스명이 없으면 재귀함수가 돼서 문제 발생
+
+    KunaiManager::Get()->Update();
 }
 
 void Human::Render()
@@ -51,6 +56,8 @@ void Human::Render()
     crowbar->Render();
 
     ModelAnimator::Render();
+
+    KunaiManager::Get()->Render();
 }
 
 void Human::GUIRender()
@@ -88,6 +95,11 @@ void Human::Control()
         if (KEY_UP('W'))
         {
             action = ACTION::IDLE;
+        }
+
+        if (KEY_DOWN(VK_RETURN))
+        {
+            KunaiManager::Get()->Throw(Pos(), Forward());
         }
     }
 }

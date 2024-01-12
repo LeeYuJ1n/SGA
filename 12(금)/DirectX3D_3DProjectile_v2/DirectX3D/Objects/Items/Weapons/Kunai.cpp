@@ -20,7 +20,7 @@ Kunai::Kunai(Transform* transform)
 
 Kunai::~Kunai()
 {
-    delete model; // 임시 모델이 없어지면 이 코드 삭제
+    // delete model; // 임시 모델이 없어지면 이 코드 삭제
     delete collider;
 }
 
@@ -40,7 +40,7 @@ void Kunai::Update()
 
 void Kunai::Render()
 {
-    model->Render();    // <- 임시
+    // model->Render();    // <- 임시
     collider->Render();
 }
 
