@@ -10,6 +10,7 @@
 #include "Scenes/ModelAnimationScene.h"
 #include "Scenes/IntancingScene.h"
 #include "Scenes/HumanScene.h"
+#include "Scenes/NarutoScene.h"
 
 // 주말의 과제
 
@@ -44,11 +45,12 @@ GameManager::GameManager()
     //SceneManager::Get()->Create("ModelRender", new ModelRenderScene());
     //SceneManager::Get()->Create("ModelAnimationScene", new ModelAnimationScene());
     //SceneManager::Get()->Create("Instancing", new IntancingScene());
-    SceneManager::Get()->Create("HumanTest", new HumanScene());
+    // SceneManager::Get()->Create("HumanTest", new HumanScene());
+    SceneManager::Get()->Create("Naruto", new NarutoScene());
 
     SceneManager::Get()->Add("Grid");    
     //SceneManager::Get()->Add("ModelExport");
-    SceneManager::Get()->Add("HumanTest");
+    SceneManager::Get()->Add("Naruto");
 }
 
 GameManager::~GameManager()

@@ -12,6 +12,7 @@ public:
     void SetView();
 
     void SetTarget(Transform* target) { this->target = target; }    
+    Transform* GetTarget() { return target; }
 
     Vector3 ScreenToWorld(Vector3 pos);
     Vector3 WorldToScreen(Vector3 pos);

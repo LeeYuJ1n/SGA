@@ -37,14 +37,22 @@ Naruto::~Naruto()
 
 void Naruto::Update()
 {
-    Control(); //조작 실행
-    SetAnimation(); //조작에 따른 애니메이션 재생
+    // Follow Mode
+    if (CAM->GetTarget() == this)
+    {
+        Control();      //조작 실행
+        SetAnimation(); //조작에 따른 애니메이션 재생
+
+        UpdateWorld();
+        kunai->UpdateWorld();
+    }
+    
 
     mainHand->SetWorld(GetTransformByNode(38)); // 노드의 38번(fbx상 관절나열의 39번째) 트랜스폼이 주로 쓰는 손
 
     //형태 업데이트 진행
     ModelAnimator::Update();
-    kunai->UpdateWorld();
+    
 }
 
 void Naruto::Render()
