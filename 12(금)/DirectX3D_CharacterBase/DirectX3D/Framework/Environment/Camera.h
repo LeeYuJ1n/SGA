@@ -40,7 +40,7 @@ private:
     float a, b, c, d;
 
     float moveSpeed = 50.0f;
-    float rotSpeed = 10.0f;
+    float rotSpeed = 5.0f;
 
     Vector3 prevMousePos;
 

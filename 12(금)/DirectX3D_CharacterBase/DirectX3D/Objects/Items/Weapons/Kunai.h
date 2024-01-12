@@ -22,8 +22,7 @@ public:
 
 private:
 
-    //임시 : 다 되면 삭제
-    // Model* model;
+    // 모델 변수는 없음 : 외부에서 만들기
 
     Transform* transform;
     SphereCollider* collider;

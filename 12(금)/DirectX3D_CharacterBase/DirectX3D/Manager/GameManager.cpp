@@ -11,19 +11,23 @@
 #include "Scenes/IntancingScene.h"
 #include "Scenes/HumanScene.h"
 
-// 오늘의 실습 겸 과제 : 투사체 클래스 적용해보기
+// 주말의 과제
 
-// 1. 휴먼 씬에서 휴먼이 쿠나이를 던질 수 있게 해봅시다 (휴먼 동작은 없어도 됩니다)
-//    (옵션) 나루토를 혹시 쓰시고 싶은 경우, 클립 목록을 참고해서 (fbx 참조 필요) 적당한 동작을 곁들여봅시다
-//    -> 다음 시간에 실제로 해볼 겁니다
+// 현재 우리는 나루토 클래스를 만들어서 캐릭터를 구현하는 데 성공했습니다!
 
-// 2. 쿠나이에 모델을 적용해봅시다
+// -> 이 나루토를 더욱 보강해서 씬에 구현해봅시다
 
-// 3. 쿠나이가 던지고 5초 뒤에 정말로 없어지는지 확인해봅시다
+// 1. 나루토를 위한 전용 씬을 만들어서 나루토를 구현해주세요
+// 2. 나루토가 추적 카메라를 쓸 수 있도록 해주세요 (추적 카메라 복습)
+// 3. cpp 내에서 빠졌던 TODO 영역의 코드를 완성해주세요
 
-// 4. 쿠나이가 프러스텀 컬링이 된다면 어떻게 될까요? (*현실 게임에서는 그러면 안 되지만... 지금은 테스트니까요)
+// 4. (옵션) 로봇 클래스를 적당히 구현해서 씬에 배치해주세요
+//           (현재 로봇은 인스턴싱이어도 되고 아니어도 됩니다)
+//           로봇에 있는 충돌체와 쿠나이가 충돌하면 변화가 생기게 해주세요
+//           (예 : 충돌체 색이 바뀌거나, 로봇이 쓰러지는 동작을 재생하거나....)
 
-// 5. 휴먼이 (혹은 나루토가) 쿠나이 여러 개를 던질 수도 있을까요? 한번 생각해봅시다!
+// 123까지 되면 우리는 캐릭터의 조작 구현을 해내게 됩니다.
+// +4까지 되면, NPC와의 (약간 폭력이 추가된) 상호작용을 할 수 있게 됩니다.
 
 
 GameManager::GameManager()
@@ -37,7 +41,7 @@ GameManager::GameManager()
     //SceneManager::Get()->Create("Sphere", new SphereScene());
     //SceneManager::Get()->Create("Terrain", new TerrainEditorScene());
     //SceneManager::Get()->Create("Collision", new CollisionScene());
-    // SceneManager::Get()->Create("ModelRender", new ModelRenderScene());
+    //SceneManager::Get()->Create("ModelRender", new ModelRenderScene());
     //SceneManager::Get()->Create("ModelAnimationScene", new ModelAnimationScene());
     //SceneManager::Get()->Create("Instancing", new IntancingScene());
     SceneManager::Get()->Create("HumanTest", new HumanScene());

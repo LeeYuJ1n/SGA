@@ -11,7 +11,6 @@ HumanScene::~HumanScene()
 {
     delete human;
     delete naruto;
-
 }
 
 void HumanScene::Update()
@@ -37,5 +36,4 @@ void HumanScene::PostRender()
 void HumanScene::GUIRender()
 {
     human->GUIRender();
-    naruto->GUIRender();
 }

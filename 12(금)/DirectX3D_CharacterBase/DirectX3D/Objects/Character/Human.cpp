@@ -18,7 +18,19 @@ Human::Human() : ModelAnimator("Human") //부모 모델 만들기
     mainHand = new Transform(); // 트랜스폼이 있다는 것만 정하기
     crowbar->SetParent(mainHand); // 무기 위치 = 내 손
 
-    // 쿠나이 (매니저 생성)
+    // 쿠나이 (내재 멤버 데이터) 생성
+    //FOR(5)
+    //{
+    //    KUNAI kunai;
+    //    kunai.model = new Model("Kunai");
+    //    kunai.model->Scale() *= 10; // 휴먼은 큰데 쿠나이는 너무 작아서
+    //    kunai.main = new Kunai(kunai.model); //메인 데이터에 모델의 트랜스폼을 넣어서 생성
+    //    kunai.main->GetTransform()->SetActive(false); // 일단 비활성화
+    //    kunais.push_back(kunai); //벡터에 추가
+    //}
+
+
+    // 쿠나이 (매니저) 생성
     KunaiManager::Get(); // 필수는 아닌데 해두면 플레이 도중 렉 유발을 줄일 수 있음
 }
 
@@ -28,6 +40,12 @@ Human::~Human()
     delete mainHand; // <- 이렇게 지워도 되는 이유 : 포인터는 지워도 데이터가 날아가진 않는다
                      // 단지 그 자리에 덮어씌워질 가능성이 생길 뿐
                      // 그리고 이 "손"의 진짜 데이터는 아직 원본이 그 자리에 남아 있다
+
+    //FOR(5)
+    //{
+    //    delete kunais[i].main;
+    //    delete kunais[i].model;
+    //}   
 }
 
 void Human::Update()
@@ -48,6 +66,11 @@ void Human::Update()
     ModelAnimator::Update(); //원본으로서의 업데이트 또한 수행
                              //클래스명이 없으면 재귀함수가 돼서 문제 발생
 
+    //임시 업데이트
+    //FOR(5) kunais[i].model->UpdateWorld();
+    //FOR(5) kunais[i].main->Update();
+
+    // 쿠나이 (매니저) 업데이트
     KunaiManager::Get()->Update();
 }
 
@@ -57,6 +80,10 @@ void Human::Render()
 
     ModelAnimator::Render();
 
+    //임시 렌더
+    //FOR(5) kunais[i].main->Render(); // <-렌더는 메인 클래스 안에 모델 렌더가 포함
+
+    // 쿠나이(매니저) 렌더
     KunaiManager::Get()->Render();
 }
 
@@ -64,6 +91,9 @@ void Human::GUIRender()
 {
     crowbar->GUIRender();
     ModelAnimator::GUIRender();
+
+    //임시 ImGui
+    //FOR(5) kunais[i].main->GetTransform()->GUIRender();
 }
 
 void Human::ClipSync()
@@ -99,6 +129,8 @@ void Human::Control()
 
         if (KEY_DOWN(VK_RETURN))
         {
+            //kunais[NextKunai()].main->Throw(Pos(), Forward());
+
             KunaiManager::Get()->Throw(Pos(), Forward());
         }
     }

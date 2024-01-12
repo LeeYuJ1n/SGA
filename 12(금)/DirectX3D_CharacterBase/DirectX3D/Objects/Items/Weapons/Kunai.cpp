@@ -4,10 +4,8 @@
 Kunai::Kunai(Transform* transform)
     : transform(transform)
 {
-    // 쿠나이 쓰는 방법 (임시버전)
-
-    // 1. 모델을 밖에서 만들고, 해당 모델의 트랜스폼을 여기에 주기
-    // 2. 위 transform을 임시로 만들어서 주고, 모델은 여기서 만들고, 다시 모델의 트랜스폼을 재할당하기
+    // 생성자 단계에서 트랜스폼을 무조건 받아서 생성한다
+    // -> 모델은 밖에서 만든다
 
     transform->Scale() = { 1, 1, 1 }; // 크기 기준 (변화가 필요하면 와서 수정 필요)
 
@@ -20,7 +18,6 @@ Kunai::Kunai(Transform* transform)
 
 Kunai::~Kunai()
 {
-    // delete model; // 임시 모델이 없어지면 이 코드 삭제
     delete collider;
 }
 
@@ -40,7 +37,6 @@ void Kunai::Update()
 
 void Kunai::Render()
 {
-    // model->Render();    // <- 임시
     collider->Render();
 }
 
@@ -52,6 +48,7 @@ void Kunai::Throw(Vector3 pos, Vector3 dir)
     transform->Pos() = pos;
     direction = dir;
 
+    //transform->Rot().y = atan2(dir.x, dir.z) - XMConvertToRadians(90); //아래 코드와 동일
     transform->Rot().y = atan2(dir.x, dir.z) - XM_PIDIV2;
                        // 나아가는 방향       -    90도
                        // (일반적인 경우) 가로로 만들어질 투사체를 앞뒤로 돌려서 진행할 수 있게

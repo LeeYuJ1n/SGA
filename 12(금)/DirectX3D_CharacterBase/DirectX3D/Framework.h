@@ -148,15 +148,13 @@ using namespace GameMath;
 #include "Objects/Landscape/Terrain.h"
 #include "Objects/Landscape/TerrainEditor.h"
 
-#include "Objects/Manager/BlockManager.h"
-
 #include "Objects/Actor/ActorUI.h"
 
 #include "Objects/Items/Weapons/Crowbar.h"
 #include "Objects/Items/Weapons/Kunai.h"
 
-#include "Objects/Manager/KunaiManager.h"
 #include "Objects/Manager/BlockManager.h"
+#include "Objects/Manager/KunaiManager.h"
 
 #include "Objects/Character/Human.h"
 #include "Objects/Character/Naruto.h"

@@ -43,4 +43,15 @@ private:
     float jumpForce = 0.5f;
     float gravityMult = 0.5f;
     bool isJump = false;
+
+
+    //금기로 가득 찬 임시 코드
+    //struct KUNAI
+    //{
+    //    Model* model; // 쿠나이의 모델
+    //    Kunai* main;  // 쿠나이의 메인 클래스
+    //};
+    //vector<KUNAI> kunais; // 쿠나이 벡터
+    //int kunaiIndex = 0;   // 현재 쿠나이의 순번 (다음에 던질 순번)
+    //int NextKunai() { return kunaiIndex++ % 5; } // 다음에 던질 순번을 받음과 함께 인덱스+1 하기 위한 함수
 };
