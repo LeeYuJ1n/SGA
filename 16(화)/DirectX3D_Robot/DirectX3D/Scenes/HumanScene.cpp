@@ -7,9 +7,9 @@ HumanScene::HumanScene()
     naruto = new Naruto();
     KunaiManager::Get();
 
-    CAM->SetTarget(naruto);
-    CAM->TargetOptionLoad("Naruto");
-    CAM->LookAtTarget();
+    //CAM->SetTarget(naruto);
+    //CAM->TargetOptionLoad("Naruto");
+    //CAM->LookAtTarget();
 }
 
 HumanScene::~HumanScene()

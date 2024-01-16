@@ -1,5 +1,4 @@
 #pragma once
-
 class Naruto : public ModelAnimator
 {
     // 나루토 : 모델 애니메이터 직접 상속
@@ -54,8 +53,8 @@ private:
 
     State curState = IDLE;
 
-    float moveSpeed    = 500;
-    float rotSpeed     = 1;
+    float moveSpeed = 500;
+    float rotSpeed = 1;
     float deceleration = 5; // 디셀러레이션 : 감속
                             // -> 조작을 하다 말거나, 다른 이유로 이동이 멈출 때 즉시 멈추지 않고
                             //    속도를 떨어뜨려서 멈추게 할 때 사용하는 데이터

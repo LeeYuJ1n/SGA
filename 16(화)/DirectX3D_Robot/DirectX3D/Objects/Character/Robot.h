@@ -1,5 +1,4 @@
 #pragma once
-
 class Robot
 {
 private:
@@ -12,7 +11,7 @@ private:
         WALK,
         RUN,
         HIT,
-        DYING
+        DYING,
         // 상태명의 기준 : fbx의 클립명 (첫 글자 대문자, 나머지 소문자. 예: "Dying")
     };
 
@@ -22,21 +21,22 @@ public:
 
     void Update();
     void Render();
-    void PostRender(); // 캐릭터에 종속된 UI가 있다면 여기서 추가
+    void PostRender(); //캐릭터에 종속된 UI가 있다면 여기서 추가
 
     void Hit(float amount = 1); // 공격과 피격
-    void Spawn(Vector3 pos); // 개체 생성(과 배치)
+    void Spawn(Vector3 pos); // 개체 생성 (과 배치)
 
-    // SphereCollider* GetCollider() { return collider; }
+    //SphereCollider* GetCollider() { return collider; }
     CapsuleCollider* GetCollider() { return collider; }
     Transform* GetTransform() { return transform; }
 
 private:
-    // 멤버 함수 (내부용)
-    void SetEvent(int clip, Event event, float timeRatio); // (모델 동작처럼) 이벤트 지정하기
+    //멤버 함수 (내부용)
+
+    void SetEvent(int clip, Event event, float timeRatio); //(모델 동작처럼) 이벤트 지정하기
     void ExecuteEvent(); // 이벤트 실행하기
 
-    // 동작이 끝날 때를 지정한 함수들
+    //동작이 끝날 때를 지정한 함수들
     void EndStandUp();
     void EndHit();
     void EndDying();
@@ -47,21 +47,22 @@ private:
     void UpdateUI();
 
 private:
+
     Transform* transform;
-    // SphereCollider* collider; // 인간형 엑터에게 구체 충돌체는 조금 크다
+    //SphereCollider* collider; // 인간형 액터에게 구체 충돌체는 조금 크다
     CapsuleCollider* collider;   // 캡슐 콜라이더
 
-    // 모델을 쿠나이처럼 밖에서 만들고 총괄관리
+    //모델을 쿠나이처럼 밖에서 만들고 총괄관리
     ModelAnimatorInstancing* instancing;
     ModelAnimatorInstancing::Motion* motion;
 
-    // 모델의 구체적인 데이터
-    Transform* root;     // 자기 모델의 최고의 메쉬(루트)
-    Transform* target;   // 로봇의 표적 (인식 거리 안쪽이면 쫓아가야 할 대상)
+    //모델의 구체적인 데이터
+    Transform* root;    // 자기 모델의 최고외 메쉬(루트)
+    Transform* target;  // 로봇의 표적 (인식 거리 안쪽이면 쫓아가야 할 대상)
 
     float moveSpeed = 30;
-    float maxHP     = 10;
-    float curHP     = 10;
+    float maxHP = 10;
+    float curHP = 10;
 
     Vector3 velocity; // 점프에 써도 되지만 아니어도 되는 범용 변수
                       // 움직일 때, 아닐 때 등등에 전부 사용 가능
