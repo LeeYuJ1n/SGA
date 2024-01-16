@@ -7,6 +7,9 @@ HumanScene::HumanScene()
     naruto = new Naruto();
     KunaiManager::Get();
 
+    robot = new Model("Robot");
+
+
     CAM->SetTarget(naruto);
     CAM->TargetOptionLoad("Naruto");
     CAM->LookAtTarget();
@@ -16,6 +19,7 @@ HumanScene::~HumanScene()
 {
     //delete human;
     delete naruto;
+    delete robot;
     KunaiManager::Get()->Delete();
 }
 
@@ -23,6 +27,7 @@ void HumanScene::Update()
 {
     //human->Update();
     naruto->Update();
+    robot->UpdateWorld();
     KunaiManager::Get()->Update();
 }
 
@@ -34,6 +39,7 @@ void HumanScene::Render()
 {
     //human->Render();
     naruto->Render();
+    robot->Render();
     KunaiManager::Get()->Render();
 }
 

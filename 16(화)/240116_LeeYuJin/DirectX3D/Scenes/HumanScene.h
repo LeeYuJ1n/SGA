@@ -14,5 +14,6 @@ public:
 private:
     //Human* human;
     Naruto* naruto;
+    Model* robot;
 };
 
