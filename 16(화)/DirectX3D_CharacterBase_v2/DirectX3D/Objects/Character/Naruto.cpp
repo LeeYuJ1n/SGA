@@ -10,16 +10,16 @@ Naruto::Naruto()
 
     // 주 손(여기선 오른손) 설정과 쿠나이 손에 들려주기
     mainHand = new Transform();
-    kunai = new Model("Kunai");
+    kunai    = new Model("Kunai");
     kunai->SetParent(mainHand);
     kunai->SetTag("Kunai");
     kunai->Load();
 
     // 동작 읽기
     ReadClip("Idle");
-    ReadClip("Run"); //RUN_F
-    ReadClip("RunBack"); //RUN_B
-    ReadClip("RunLeft"); //RUN_L
+    ReadClip("Run");      //RUN_F
+    ReadClip("RunBack");  //RUN_B
+    ReadClip("RunLeft");  //RUN_L
     ReadClip("RunRight"); //RUN_R
     ReadClip("Throw");
 
@@ -37,7 +37,7 @@ Naruto::~Naruto()
 
 void Naruto::Update()
 {
-    Control(); //조작 실행
+    Control();      //조작 실행
     SetAnimation(); //조작에 따른 애니메이션 재생
 
     mainHand->SetWorld(GetTransformByNode(38)); // 노드의 38번(fbx상 관절나열의 39번째) 트랜스폼이 주로 쓰는 손
