@@ -8,3 +8,4 @@
 01월 11일 목요일 : [ DirectX3D ] 3DProjectile(+Frustum)
 01월 12일 금요일 : [ DirectX3D ] CharacterBase
 01월 16일 화요일 : [ DirectX3D ] Robot(NPC)
+01월 17일 수요일 : [ DirectX3D ] CharacterManagerUI
