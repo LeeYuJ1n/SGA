@@ -29,7 +29,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Render\DepthStencil.h" />
     <ClInclude Include="Objects\UI\ProgressBar.h" />
     <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="Objects\Character\Naruto.h" />
@@ -224,9 +225,11 @@
     <ClInclude Include="Scenes\SphereScene.h" />
     <ClInclude Include="Scenes\TerrainEditorScene.h" />
     <ClInclude Include="Scenes\TerrainScene.h" />
+    <ClInclude Include="Objects\Landscape\SkyBox.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Render\DepthStencil.cpp" />
     <ClCompile Include="Objects\UI\ProgressBar.cpp" />
     <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="Objects\Character\Naruto.cpp" />
@@ -302,6 +305,7 @@
     <ClCompile Include="Scenes\SphereScene.cpp" />
     <ClCompile Include="Scenes\TerrainEditorScene.cpp" />
     <ClCompile Include="Scenes\TerrainScene.cpp" />
+    <ClCompile Include="Objects\Landscape\SkyBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DirectX3D.rc" />

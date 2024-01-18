@@ -118,6 +118,7 @@ using namespace Utility;
 #include "Framework/Render/Texture.h"
 #include "Framework/Render/Material.h"
 #include "Framework/Render/Mesh.h"
+#include "Framework/Render/DepthStencil.h"
 
 #include "Framework/Collision/Collider.h"
 #include "Framework/Collision/BoxCollider.h"
@@ -147,6 +148,7 @@ using namespace GameMath;
 
 #include "Objects/Landscape/Terrain.h"
 #include "Objects/Landscape/TerrainEditor.h"
+#include "Objects/Landscape/SkyBox.h"
 
 #include "Objects/Actor/ActorUI.h"
 

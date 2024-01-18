@@ -264,6 +264,12 @@
     <ClInclude Include="Objects\UI\ProgressBar.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Objects\Landscape\SkyBox.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Render\DepthStencil.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectX3D.cpp">
@@ -483,6 +489,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\UI\ProgressBar.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Landscape\SkyBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\DepthStencil.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
