@@ -63,7 +63,11 @@ void RenderTargetScene::Update()
 void RenderTargetScene::PreRender()
 {
 	renderTarget->Set(depthstencil);
+	// human->Render();
 
+	imitationHuman->Pos() = CAM->Pos() + CAM->Forward() * 300.0f;
+	imitationHuman->Rot() = CAM->Rot();
+	imitationHuman->Update();
 	imitationHuman->Render();
 }
 
