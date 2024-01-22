@@ -12,3 +12,4 @@
 01월 18일 목요일 : [ DirectX3D ] GameScene_DSV
 01월 19일 금요일 : [ DirectX3D ] RenderTarget
 01월 22일 월요일 : [ DirectX3D ] GBufferShadow
+01월 23일 화요일 : [ DirectX3D ] 
