@@ -141,6 +141,9 @@ using namespace GameMath;
 #include "Framework/Environment/Camera.h"
 #include "Framework/Environment/Environment.h"
 
+//Shadow
+#include "Framework/Render/Shadow.h"
+
 //Object Header
 #include "Objects/Basic/GameObject.h"
 #include "Objects/Basic/Quad.h"

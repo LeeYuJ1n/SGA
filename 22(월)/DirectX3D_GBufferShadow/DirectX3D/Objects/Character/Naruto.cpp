@@ -4,8 +4,8 @@ Naruto::Naruto()
     : ModelAnimator("Naruto")
 {
     // 클라이언트 환경을 통해서 화면상 포인트 위치 재조정
-    ClientToScreen(hWnd, &clientCenterPos);
-    SetCursorPos(clientCenterPos.x, clientCenterPos.y);
+    //ClientToScreen(hWnd, &clientCenterPos);
+    //SetCursorPos(clientCenterPos.x, clientCenterPos.y);
     // 앱 시작시 마우스 위치에 의해 시점이 멋대로 돌아가는 것을 줄이기 위해
 
     // 주 손(여기선 오른손) 설정과 쿠나이 손에 들려주기
@@ -17,9 +17,9 @@ Naruto::Naruto()
 
     // 동작 읽기
     ReadClip("Idle");
-    ReadClip("Run");      //RUN_F
-    ReadClip("RunBack");  //RUN_B
-    ReadClip("RunLeft");  //RUN_L
+    ReadClip("Run"); //RUN_F
+    ReadClip("RunBack"); //RUN_B
+    ReadClip("RunLeft"); //RUN_L
     ReadClip("RunRight"); //RUN_R
     ReadClip("Throw");
 
@@ -64,7 +64,7 @@ void Naruto::Control()
     //세부 컨트롤은 각각 따로 작성
     //여기서는 "조작"이라는 이름 아래 총괄만
     
-    Rotate(); // 회전
+    //Rotate(); // 회전
     Move();   // 이동
     Attack(); // 공격 (현재는 투척)
 }
