@@ -1,0 +1,2 @@
+#include "Libraries/inc/fmod.hpp"
+#pragma comment(lib, "Libraries/lib/fmod_vc.lib")
