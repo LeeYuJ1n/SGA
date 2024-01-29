@@ -34,6 +34,14 @@ void Quad::Render()
     mesh->Draw();
 }
 
+void Quad::SetRender()
+{
+    mesh->GetVertexBuffer()->Set();
+    mesh->GetIndexBuffer()->Set();
+
+    GameObject::SetRender();
+}
+
 void Quad::MakeMesh()
 {
     float left = -size.x * 0.5f;

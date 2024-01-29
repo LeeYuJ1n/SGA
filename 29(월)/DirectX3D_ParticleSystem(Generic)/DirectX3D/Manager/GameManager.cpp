@@ -17,6 +17,7 @@
 #include "Scenes/AStarScene.h"
 #include "Scenes/LightScene.h"
 #include "Scenes/BillboardScene.h"
+#include "Scenes/ParticleScene.h"
 
 
 GameManager::GameManager()
@@ -40,7 +41,8 @@ GameManager::GameManager()
     //SceneManager::Get()->Create("ShadowScene", new ShadowScene());
     //SceneManager::Get()->Create("AStar", new AStarScene());
     //SceneManager::Get()->Create("LightTest", new LightScene());
-    SceneManager::Get()->Create("Billboard", new BillboardScene());
+    //SceneManager::Get()->Create("Billboard", new BillboardScene());
+    SceneManager::Get()->Create("Particle", new ParticleScene());
 
     SceneManager::Get()->Add("Grid");
     //SceneManager::Get()->Add("ModelExport");
@@ -51,7 +53,8 @@ GameManager::GameManager()
     //SceneManager::Get()->Add("ShadowScene");
     //SceneManager::Get()->Add("AStar");
     //SceneManager::Get()->Add("LightTest");
-    SceneManager::Get()->Add("Billboard");
+    //SceneManager::Get()->Add("Billboard");
+    SceneManager::Get()->Add("Particle");
 }
 
 GameManager::~GameManager()

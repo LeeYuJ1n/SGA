@@ -25,7 +25,7 @@ private:
         bool isAdditive = true; // 이미지의 화소가 이전(배경) 화소와 합쳐지는가? = 연한 투명 효과를 연출할 것인가
         bool isBillboard = true; // 카메라 방향에 상관없이 언제나 같은 형태의 이미지가 보일 것인가?
         UINT count = 100; // 카운트 옵션 : 동시에 생성 가능한 수, 스프라이트 수... 등 다양한 상황에서 쓰인다
-        float duration = 1; //이펙트 지속시간
+        float duration = 1.0f; //이펙트 지속시간
         Vector3 minVelocity = { -1, -1, -1 }; //최소 속력기준(+방향)
         Vector3 maxVelocity = { +1, +1, +1 }; //최대 속력기준(+방향)
         Vector3 minAcceleration; //최소 가속력(속도변화량)
@@ -72,6 +72,7 @@ public:
 
     void Update();
     void Render();
+    void GUIRender();
 
     void Play(Vector3 pos, Vector3 rot = Vector3()); // 위치는 필수, 회전은 옵션, 기본값은 {0,0,0}
                                                      // (->기본 출력은 빌보드일 테니까...)
@@ -81,7 +82,7 @@ public:
 
 private:
     void UpdatePhysical(); //실체를 업데이트하는 함수
-    void UpdateColod();    //색깔을 업데이트하는 함수
+    void UpdateColor();    //색깔을 업데이트하는 함수
     void Init();           //기능 시작
 
     void LoadData(string file); //사전에 지정된 텍스트 설정 파일이 있는 경우

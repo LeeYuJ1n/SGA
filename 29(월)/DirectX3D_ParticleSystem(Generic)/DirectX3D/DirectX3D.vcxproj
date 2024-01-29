@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="Algorithm\AStar.h" />
     <ClInclude Include="Objects\Particle\ParticleSystem.h" />
+    <ClInclude Include="Scenes\ParticleScene.h" />
     <ClInclude Include="Scenes\BillboardScene.h" />
     <ClInclude Include="Scenes\AStarScene.h" />
     <ClInclude Include="DirectX3D.h" />
@@ -247,6 +248,7 @@
   <ItemGroup>
     <ClCompile Include="Algorithm\AStar.cpp" />
     <ClCompile Include="Objects\Particle\ParticleSystem.cpp" />
+    <ClCompile Include="Scenes\ParticleScene.cpp" />
     <ClCompile Include="Scenes\BillboardScene.cpp" />
     <ClCompile Include="Scenes\AStarScene.cpp" />
     <ClCompile Include="DirectX3D.cpp" />
