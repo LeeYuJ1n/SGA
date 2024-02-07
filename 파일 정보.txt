@@ -1,2 +1,2 @@
-02월 05일 화요일 : [ DirectX3D ] FullBase(comment2)
-02월 06일 수요일 : [ DirectX3D ] FullBase(comment3)
+02월 05일 화요일 : [ DirectX3D ] FullBase(comment2) -> 쿼드 트리 내용 포함
+02월 06일 수요일 : [ DirectX3D ] FullBase(comment3) -> LOD 설명 포함
